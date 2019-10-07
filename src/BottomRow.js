@@ -7,6 +7,13 @@ const BottomRow = () => {
   const [yardsToGo, setYardsQuarter] = useState(7);
   const [ballOn, setBallOn] = useState(21);
 
+  const resetGame = () => {
+    setDowns(0);
+    setQuarter(0);
+    setYardsQuarter(0);
+    setBallOn(50);
+  };
+
   return (
     <>
       <div className="bottomRow">
@@ -33,16 +40,7 @@ const BottomRow = () => {
         <button onClick={() => setDowns(0)}>Reset Down</button>
         <button onClick={() => setQuarter(quarter + 1)}>New Quarter</button>
         <button onClick={() => setQuarter(0)}>Reset Quarter</button>
-        <button
-          onClick={() => {
-            setDowns(0);
-            setQuarter(0);
-            setYardsQuarter(0);
-            setBallOn(50);
-          }}
-        >
-          End Game
-        </button>
+        <button onClick={resetGame}>End Game</button>
       </section>
     </>
   );
